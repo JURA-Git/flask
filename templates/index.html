@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <ul>
+      <li>
+        <img
+          src="{{ url_for('static',filename='images/logo.png')}}"
+          height="50"
+          width="70"
+        />
+      </li>
+      <li>
+        <a
+          class="{{ 'active' if active_page == 'home' else '' }}"
+          href="{{ url_for('home') }}"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          class="{{ 'active' if active_page == 'news' else '' }}"
+          href="{{ url_for('news') }}"
+          >News</a
+        >
+      </li>
+      <li>
+        <a
+          class="{{ 'active' if active_page == 'contact' else '' }}"
+          href="{{ url_for('contact') }}"
+          >Contact</a
+        >
+      </li>
+      <li style="float: right">
+        <a
+          class="{{ 'active' if active_page == 'about' else '' }}"
+          href="{{ url_for('about') }}"
+          >About</a
+        >
+      </li>
+    </ul>
+
+    <div style="padding: 20px; margin-top: 30px">
+      {% block content %}{% endblock %}
+    </div>
+    {% include 'footer.html' %}
+  </body>
+</html>
